@@ -145,6 +145,7 @@ BinarySearchTree::Node* BinarySearchTree::remove_(Node* node, int value,
         }
         else if (!node->left) {
             Node* child = node->right;
+
             delete node;
             return child;
 
@@ -159,11 +160,11 @@ BinarySearchTree::Node* BinarySearchTree::remove_(Node* node, int value,
 
             node->data = successor->data;
 
-            node->right = remove_(node->right, successor->data, removed);
+            node->right = remove_(node->right, successor->data, removed = false);
         }
     }
 
-    return nullptr; // placeholder — replace this with your implementation
+    return node; // placeholder — replace this with your implementation
 }
 
 // ---------------------------------------------------------------------------
